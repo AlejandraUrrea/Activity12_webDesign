@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChuckJokesVue</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Chuck Norris Facts</h1>
+        </header>
+
+        <main>
+            <ul class="joke-list">
+                <li v-for="(item, index) in chuck" :key="index" class="joke-card">
+                    <span class="icon">👊</span>
+                    <p>{{ item.value }}</p>
+                </li>
+            </ul>
+        </main>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    chuck: [ 
+                        { "value": "Chuck Norris can skydive into outer space." }, 
+                        { "value": "The chief export of Chuck Norris is pain." }, 
+                        { "value": "Chuck Norris doesn't read books. He stares them down until he gets the information he wants." }, 
+                        { "value": "Time waits for no man. Unless that man is Chuck Norris." }, 
+                        { "value": "If you spell Chuck Norris in Scrabble, you win. Forever." }
+                    ]
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
